@@ -1,6 +1,6 @@
 {
   "name": "myapp",
-  "homepage": "https://tanayapatil.github.io/reactlivewebsite",
+  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
