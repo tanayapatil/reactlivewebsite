@@ -1,0 +1,135 @@
+.rightSide_col{
+    background-color:white;
+    border-radius: 5px;
+    margin-left: 10px;
+    
+  }
+  .about_heading{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 21px;
+    padding-left: 25px;
+    padding-top: 25px;
+    font-weight: bold;
+  }
+
+  .about_logo{
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+
+  .verticalLine_sidebar_about {
+    width: 12px !important; 
+    height: 56px !important; 
+    
+}
+.vertical_left_sidebar_about{
+    transform: rotate(30deg);
+    background: rgb(38, 182, 226);
+    margin-left: 14px;
+    margin-top: 2px;
+}
+.verticalLine_right_sidebar_about {
+    background: rgb(240, 61, 144);
+    transform: rotate(150deg);
+    margin-top: 2px;
+}
+
+
+.logo_char_sidebar_about{
+    font-size: 22px;
+    font-weight: bold;
+    color: rgba(243, 243, 71, 0.801);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 23px !important;
+   margin-top: -28px !important;
+    
+}
+
+
+.logo_name_sidebar_about{
+    
+    font-size: 14px !important;
+    margin-top: 11px !important;
+   
+}
+.sidebar_logo_outer_about{
+    
+    width:80px;
+    height: 80px;
+  padding-left: 9px;
+  padding-top: 8px;
+   
+   border-radius: 50%;
+   border: 1px dotted gray;
+  
+}
+.sidebar_log_name_about{
+    margin-top: 12px;
+    margin-left: 8px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 21px;
+}
+.digitalInks{
+    color: gray !important;
+    font-weight: normal !important;
+    font-size: 18px;
+}
+.verifyCompany{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.verified_text{
+    color: rgb(89, 169, 235);
+    font-size: 12px;
+    margin-left: 8px;
+    text-decoration: underline;
+}
+.verify_icon{
+    color: gray;
+    
+}
+.about_info_para{
+    width: 70%;
+    padding-left: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    color: gray;
+}
+/* .about_info_icon{
+    font-size: 12px;
+   
+} */
+.about_info_icon_outer{
+    font-size: 12px;
+    margin-top: -4px;
+    margin-left: 8px;
+}
+.about_info{
+  margin-top: 20px;
+}
+.horizontal_menus{
+    
+    margin-top: 10px;
+    margin-left: -20px;
+    /* color: gray; */
+    
+}
+.link{
+    text-decoration: none;
+    color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+
+}  
+.link:hover{
+    color: black;
+}
+.outlet_style{
+    /* margin-left: 15px; */
+    padding-left: 10px;
+}
+.horizontal_line{
+   width: 90%;
+   margin-left: 10px;
+}

@@ -1,0 +1,111 @@
+.info_icon_edit{
+    font-size: 12px;
+   margin-left: 10px;
+   margin-top: 2px;
+    
+    
+}
+.info_icon_add{
+    font-size: 12px;
+   margin-left: 120px;
+   margin-top: 2px;
+}
+/* .info_heading{
+   border: 1px solid black ;
+} */
+.icon_contact{
+   
+    font-size: 20px;
+    margin-top: 4px;
+}
+.icon_name{
+    margin-left: 10px;
+}
+.icon_contact_text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    color: black;
+    margin-left: 10px;
+}
+.email{
+    margin-top: 8px;
+}
+.email_icon_text{
+    margin-left: 10px;
+}
+.email_text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    color: gray;
+    margin-left: 10px;
+}
+.email_icon{
+    font-size: 12px;
+    color: rgb(196, 189, 189);
+}
+.total_emails{
+    margin-left: 40px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+   
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+   padding-top: 3px;
+   padding-left: 5px;
+   background-color: rgb(245, 218, 218);
+}
+.single_column{
+    border: 1px solid rgb(196, 189, 189);
+    padding: 10px 0px;
+    border-radius: 5px;
+   
+}
+.modal_position{
+    /* width:48% !important; 
+   
+   right: 0 !important;
+    */
+    margin-top:-35px;
+    margin-left: 30%;
+ 
+}
+.modal_heading_icon{
+    font-size: 18px;
+    margin-top: 10px;
+}
+.modal_heading_text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.modal_heading_subtext{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    color: gray;
+}
+.icon_edit_modal{
+    font-size: 12px;
+    margin-left: 130px;
+    margin-top: 2px;  
+}
+.icon_delete_modal{
+    font-size: 12px;
+    margin-left: 10px;
+    
+    margin-top: 2px;  
+}
+.add_more_modal{
+    height: 30px;
+    width: 470px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 15px;
+    color: brown;
+    background-color: rgb(243, 226, 226);
+}
+.Harcoad{
+    margin-left: -5px;
+}

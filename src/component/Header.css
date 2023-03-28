@@ -1,0 +1,97 @@
+.verticalLine {
+    width: 9px;
+    height: 45px;
+    border-radius: 8px;
+    margin-right: 10px;
+    opacity: 0.9;
+}
+
+.verticalLine_left {
+    transform: rotate(30deg);
+    background: rgb(38, 182, 226);
+
+}
+
+.verticalLine_right {
+    background: rgb(240, 61, 144);
+    transform: rotate(150deg);
+
+}
+.logo_char{
+    font-size: 17px;
+    font-weight: bold;
+    color: rgba(243, 243, 71, 0.801);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 8px;
+   margin-top: -22px;
+    
+}
+.logo_name{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.log_poweredby{
+    color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-left: -20px;
+}
+.logo_sub{
+    color: brown;
+    margin-left: 4px;
+    
+}
+.logo_textColour{
+    color: brown;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    
+}
+
+
+.search {
+   
+   /* margin-right: -10px; */
+   position: absolute;
+  right: 5px;
+  top: 5px;
+  /* left: 20px; */
+  z-index: 9999;
+   
+  }
+
+  .checkout_button{
+    height: 37px;
+    width: 125px;
+    border: 1px solid black;
+    color: white;
+    background-color: black;
+  }
+ 
+  .checkout_text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+  }
+  .user_img{
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+  }
+  .user_text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .user_admin{
+    width: 30%;
+    margin-left: 40px;
+  }
+  .logoBelow_text{
+    margin-top: -9px;
+  }
+  
+  
+ 
