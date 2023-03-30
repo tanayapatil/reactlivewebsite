@@ -5,10 +5,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAddressBook, faPen, faEnvelope, faPhone, faArrowLeft, faTrash, faCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook, faPen, faEnvelope, faPhone, faArrowLeft, faTrash, faCirclePlus, faBullseye } from '@fortawesome/free-solid-svg-icons'
 import './Info.css';
 import Address from './Address'
 import HourOperation from './HourOperation';
+import { useNavigate } from "react-router-dom";
+
 
 // modal
 import { useState, useEffect } from 'react';
@@ -19,6 +21,7 @@ const Info = () => {
 
     const getLocalItem = () => {
         let list = JSON.parse(localStorage.getItem('storage'))
+        console.log(list)
         return list
     }
 
@@ -29,6 +32,7 @@ const Info = () => {
     const [item, setItem] = useState(getLocalItem())
     const [isEditItem, setIsEditItem] = useState(null)
     const [toggleSubmit, setToggleSubmit] = useState(true)
+    const [firstLocalValue, setFirstLocalValue] = useState(true)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -44,70 +48,20 @@ const Info = () => {
 
 
 
+
     const back = () => {
         if (value) {
             setShow(false)
         }
         else {
+            if(emailData && phone){
             setValue(true)
+            }
+            else{
+                alert("enter email and phone")
+            }
         }
     }
-
-    // const add = () => {
-    //     if (!emailData && !phone) {
-    //         alert('enter email and phone')
-    //     }
-    //     else if (emailData && phone && !toggleSubmit) {
-    //         // udated values added
-
-    //         console.log(toggleSubmit)
-
-    //         const allData = { email: emailData, phone: phone }
-    //         console.log(allData)
-
-    //         setItem(
-    //             item.map((ele) => {
-    //                 if (ele.id === isEditItem) {
-    //                     return { ...ele, allData }
-
-    //                 }
-    //                 return ele
-
-    //             })
-    //         )
-
-
-
-
-
-
-
-    //         // const updateArray=item.map((elem,index)=>{
-    //         //     if(elem.id===isEditItem){
-    //         //         return {...elem,email: emailData, phone: phone }
-    //         //     }
-    //         //     return elem
-    //         // })
-    //         // console.log(updateArray)
-    //         // setItem(updateArray)
-
-
-    //         setToggleSubmit(true)
-    //         // setEmailData('')
-    //         // setPhone('')
-
-
-    //     }
-    //     else {
-
-    //         // values added
-    //         const allInputs = { id: new Date().getTime().toString(), email: emailData, phone: phone }
-    //         handleClose()
-    //         setItem([...item, allInputs])
-    //         setEmailData('')
-    //         setPhone('')
-    //     }
-    // }
 
 
 
@@ -151,17 +105,57 @@ const Info = () => {
 
     }
 
+    const addFirstData = () => {
+        handleShow()
+        setValue(false)
+        setToggleSubmit(true)
+
+        // firstLocalValue(true)
+        // const arr=[{email:emailData,phone:phone}]
+        // localStorage.setItem("storage",JSON.stringify(arr))
+    }
+    const addFirstDataModal = (e) => {
+        const arr = [{ email: emailData, phone: phone }]
+
+        console.log(item)
+        localStorage.setItem("storage", JSON.stringify(arr))
+
+    //    adding first data when local storage is empty
+        const getFirstLocaldata = () => {
+            let listNew = JSON.parse(localStorage.getItem('storage'))
+            console.log(listNew)
+            return listNew
+        }
+        setItem(getFirstLocaldata())
+
+
+
+        setFirstLocalValue(false)
+        handleClose()
+        // setToggleSubmit(true)
+        console.log(item)
+
+
+
+
+
+
+
+    }
+
     const addDataModal = () => {
         handleShow()
         setValue(false)
         setToggleSubmit(true)
         setEmailData('')
         setPhone('')
+        setFirstLocalValue(false)
     }
     const editDataModal = () => {
         handleShow()
         setValue(true)
         setToggleSubmit(true)
+        setFirstLocalValue(false)
 
     }
     const deleteData = (id) => {
@@ -172,6 +166,17 @@ const Info = () => {
 
         })
         setItem(deleteItems)
+        console.log("lenghth", item.length - 1)
+        console.log("item", item)
+        if (item.length - 1 === 0) {
+            setValue(false)
+            setEmailData('')
+            setPhone('')
+            // setToggleSubmit(false)
+            // handleClose()
+            setFirstLocalValue(false)
+        }
+        // 
 
     }
 
@@ -187,7 +192,13 @@ const Info = () => {
         setPhone(updateValue.phone)
         setIsEditItem(id)
 
+
+
     }
+
+    const enabled = emailData && phone;
+
+
 
 
 
@@ -201,10 +212,10 @@ const Info = () => {
 
 
             <Container>
-                {item.slice(0, 1).map((ele, index, arr) => {
+                {item || !setFirstLocalValue ? item.slice(-1).map((ele, index) => {
                     return (
 
-                        <Row>
+                        <Row key={ele.id}>
                             <Col lg={4}>
                                 <div className='single_column'>
                                     <div className='info_heading d-flex '>
@@ -249,16 +260,30 @@ const Info = () => {
 
                             {/* ******** hardcoaded values  ********** */}
 
-                            <Address/>
-                            <HourOperation/>
-                            
+                            <Address />
+                            <HourOperation />
 
-                            
+
+
                         </Row>
-                        
+
 
                     )
-                })}
+                }) :
+                    <>
+                        {/* add first value in array when local storage is null */}
+                        <Row>
+                            <Col lg={4}>
+                                <Button variant="danger" onClick={addFirstData} >
+
+                                    add email and phone
+                                </Button>
+                            </Col>
+                            <Address />
+                            <HourOperation />
+                        </Row>
+                    </>
+                }
 
             </Container>
 
@@ -273,7 +298,7 @@ const Info = () => {
                 <Modal.Header >
                     <Modal.Title >
                         <div className='d-flex'>
-                            <div className='modal_heading_icon'><FontAwesomeIcon icon={faArrowLeft} onClick={back} /></div>
+                            <div className='modal_heading_icon'><FontAwesomeIcon icon={faArrowLeft} onClick={back} disabled={!emailData && !phone} /></div>
                             <div className='modal_heading_text'>Contacts</div>
                         </div>
                         <div className='modal_heading_subtext'>Please provide company's email and contact</div>
@@ -282,7 +307,7 @@ const Info = () => {
                 <Modal.Body style={{ height: 400 }}>
                     {value ?
                         <Container>
-                            {item.slice(-3).map((ele, index) => {
+                            {item && item.slice(-3).map((ele, index) => {
                                 return (
 
                                     <Row className='mt-1' key={ele.id}>
@@ -345,13 +370,13 @@ const Info = () => {
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="name@example.com" value={emailData} onChange={(e) => { setEmailData(e.target.value) }} required />
                             </div>
-                           
+
 
                             <div className='mt-4'>
                                 <Form.Label>Phone</Form.Label>
                                 <Form.Control type="tel" placeholder="phone number" value={phone} onChange={(e) => { setPhone(e.target.value) }} required />
                             </div>
-                            
+
                         </>
 
 
@@ -370,8 +395,23 @@ const Info = () => {
                         Close
                     </Button> */}
 
+                    {firstLocalValue ? <Button variant="danger" onClick={addFirstDataModal} style={{ width: 500 }}>
 
-                    {toggleSubmit ? <Button variant="danger" onClick={addDataItem} style={{ width: 500 }}>
+                        add
+                    </Button> :
+                        toggleSubmit ? <Button variant="danger" onClick={addDataItem} style={{ width: 500 }}>
+
+                            Save Changes
+                        </Button>
+                            :
+                            <Button variant="danger" onClick={updateDataItem} style={{ width: 500 }}>
+
+                                update
+                            </Button>
+                    }
+
+
+                    {/* {toggleSubmit ? <Button variant="danger" onClick={addDataItem} style={{ width: 500 }}>
 
                         Save Changes
                     </Button>
@@ -380,7 +420,7 @@ const Info = () => {
 
                             update
                         </Button>
-                    }
+                    } */}
 
 
 
